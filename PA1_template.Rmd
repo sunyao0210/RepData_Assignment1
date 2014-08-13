@@ -57,7 +57,7 @@ Mean values didn't change as imputation used the average on 5-mi interval
 library(lattice)
 weekdays <- weekdays(as.Date(merged$date))
 data_weekdays <- transform(merged, day = weekdays)
-data_weekdays$wk <- ifelse(data_weekdays$day %in% c("ÐÇÆÚÁù", "ÐÇÆÚÌì"), "weekend", 
+data_weekdays$wk <- ifelse(data_weekdays$day %in% c("Saturday", "Sunday"), "weekend", 
     "weekday")
 average_week <- ddply(data_weekdays, .(interval, wk), summarise, steps = mean(steps))
 
